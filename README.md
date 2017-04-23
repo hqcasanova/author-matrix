@@ -1,7 +1,9 @@
 Author-matrix
 =============
 
-Tabular representation of author-to-author relationships in the Medline dataset.
+Tabular representation of author-to-author relationships in the Medline dataset. [Live demo](https://hqcasanova.github.io/author-matrix/).
+Implemented with Marionette v3.2. 
+Tested on Google Chrome v57.
 
 Questions
 ---------

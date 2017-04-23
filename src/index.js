@@ -2,39 +2,47 @@ import './styles.less';
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
-import Articles from './articles/collection'
+import Articles from './articles/collection';
 import Marionette from 'backbone.marionette';
 import Row from './row/view.js'
 
 //Application class
 const Matrix = Marionette.Application.extend({
     articles: null,      //articles collection
+    authors: null,       //authors collection
 
-    //Sets up search results collection
+    //Sets up data structures. Uses prototype to establish relationships.
     onBeforeStart: function (app, options) {
         this.articles = new Articles([], {
             url: options.rootUrl + options.apiPath + options.articlesPath,
             rootProp: 'MedlineCitationSet'
         });
+
+        //There's a many-to-many relationship between authors and articles.
+        //NOTE: to facilitate dynamic updating of authors through the sequential
+        //processing of articles, the coupling is implemented in the article => author
+        //direction.
+        this.authors = this.articles.model.prototype.authors;
     },
 
-    //Fills the matrix with data incrementally, as the articles are processed one by one.
+    //Sets up view scaffolding around existing markup.
     onStart: function (app, options) {
-        const authors = this.articles.model.prototype.authors;
         const matrixEl = document.body.querySelector('.matrix');
         const columnsEl = matrixEl.querySelector('.columns');
         const rowsEl = matrixEl.querySelector('.rows');
 
         new Row({
             el: columnsEl,
-            collection: authors,
+            collection: this.authors,
             childViewOptions: {isColumn: true}
         }).render();
         new Row({
             el: rowsEl,
-            collection: authors,
+            collection: this.authors,
             articles: this.articles
         }).render();
+
+        //Fills the matrix with data incrementally, as the articles are processed one by one.
         this.articles.fetch({success: () => {
             columnsEl.classList.add('loaded')
         }});

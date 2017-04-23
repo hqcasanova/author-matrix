@@ -12,13 +12,13 @@ export default Row.extend({
         return response.Author;
     },
 
-    //Converts authors to a list of pointers. It leverages Backbone's default ID (CID) as 
-    //for the hash pointers. 
+    //Extracts author data from the article, converting the author list into a series of
+    //pointers during the process. Each pointer is a CID, Backbone's generated ID. 
     //NOTE: By default, Backbone ignores models with existing IDs but will nevertheless 
     //return them as part of the add operation. If the authors are not in the collection's
     //hash, it also adds them.
-    toPointers: function (response) {
-        return _.pluck(this.add(response, {parse: true}), 'cid');
+    toPointers: function (articleObj) {
+        return _.pluck(this.add(articleObj, {parse: true}), 'cid');
     },
 
     //Updates the article list for each of the authors of the present article.
@@ -29,8 +29,8 @@ export default Row.extend({
     },
 
     //Uses base64 as a quick and dirty form of unique ID for an article if not set.
-    //NOTE: models are looked up in the collection before parsing. Hence why parse() is not
-    //overwritten here. 
+    //NOTE: models are looked up in the collection to check if they already exist, 
+    //before parsing. Hence why setting an ID at parsing time is too late.
     //TODO: Two authors can have the same name and initials. Find a safer and more efficient
     //alternative if available or make IDs a requirement for authors on the backend.
     modelId: function (attributes) {

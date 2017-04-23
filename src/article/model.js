@@ -19,7 +19,7 @@ export default Backbone.Model.extend({
         this.on('add', this.onAdd);
     },
 
-    //Works out list of author pointers
+    //Works out list of author pointers from the article object
     parse: function (response) {
         response.AuthorList = this.authors.toPointers(response);
         return response;
@@ -27,7 +27,7 @@ export default Backbone.Model.extend({
 
     //Update each author's list of articles once Backbone's CID for this article has been 
     //worked out (once the article has been added to the collection)
-    onAdd: function () {
-        this.authors.changeArticles(this.get('AuthorList'), this.cid);
+    onAdd: function (article) {
+        this.authors.changeArticles(article.get('AuthorList'), article.cid);
     }
 });

@@ -29,8 +29,8 @@ export default Row.extend({
     },
 
     //Uses base64 as a quick and dirty form of unique ID for an article if not set.
-    //NOTE: models are looked up in the collection before parsing. Hence why parse() is not
-    //overwritten here. 
+    //NOTE: models are looked up in the collection to check if they already exist, 
+    //before parsing. Hence why setting an ID at parsing time is too late.
     //TODO: Two authors can have the same name and initials. Find a safer and more efficient
     //alternative if available or make IDs a requirement for authors on the backend.
     modelId: function (attributes) {

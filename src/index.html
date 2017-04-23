@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+    <title>Author Matrix | Map of Medline co-authors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/favicon.png">
+    <meta name="description" content="Tabular representation of author-to-author relationships in the Medline dataset" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Tabular representation of author-to-author relationships in the Medline dataset" />
+</head>
+<body>
+    <!-- ABOVE THE FOLD -->
+    <header class="identity">
+        <h1>ArrayExpress<sup>&alpha;</sup></h1>
+        <h2 class="subtitle">Map of Medline co-authors</h2>
+    </header>
+    <main>
+        <table class="matrix">
+            <caption><p>Each cell gives the <em>number of articles</em> shared by the corresponding <em>author pair</em></p></caption>
+            <thead>
+                <tr class="columns">
+                    <th class="first-cell"><span class="spinner"></span></th>
+                </tr>
+            </thead>
+            <tbody class="rows"></tbody>
+        </table>
+    </main>
+    <footer>
+        <a href="https://github.com/hqcasanova/author-matrix" class="forkme"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="" width="149" height="149"></a>
+    </footer>
+       
+    <!-- APPLICATION -->
+    <script src="bundle.js"></script>
+</body>
+</html>

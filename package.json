@@ -1,0 +1,56 @@
+{
+  "name": "author-matrix",
+  "version": "0.0.1",
+  "description": "Tabular representation of author-to-author relationships in the Medline dataset",
+  "main": "src/matrix.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hqcasanova/author-matrix.git"
+  },
+  "keywords": [
+    "medline",
+    "authors",
+    "co-authors",
+    "marionette",
+    "webpack",
+    "javascript",
+    "map",
+    "matrix",
+    "articles",
+    "single-page-app",
+    "embl-ebi"
+  ],
+  "author": "hqcasanova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hqcasanova/author-matrix/issues"
+  },
+  "homepage": "https://hqcasanova.github.io/author-matrix/",
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "backbone.marionette": "^3.2.0",
+    "jquery": "^3.1.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.27.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "less": "^2.7.2",
+    "less-loader": "^3.0.0",
+    "postcss-loader": "^1.3.3",
+    "style-loader": "^0.13.2",
+    "underscore-template-loader": "^0.7.3",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
+    "webpack-plugin-critical": "^1.0.0"
+  }
+}

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -13807,7 +13807,7 @@ return jQuery;
   return Backbone;
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ }),
 /* 3 */
@@ -13824,7 +13824,7 @@ return jQuery;
 
 
 (function (global, factory) {
-	 true ? module.exports = factory(__webpack_require__(2), __webpack_require__(0), __webpack_require__(12)) :
+	 true ? module.exports = factory(__webpack_require__(2), __webpack_require__(0), __webpack_require__(13)) :
 	typeof define === 'function' && define.amd ? define(['backbone', 'underscore', 'backbone.radio'], factory) :
 	(global.Marionette = global['Mn'] = factory(global.Backbone,global._,global.Backbone.Radio));
 }(this, (function (Backbone,_,Radio) { 'use strict';
@@ -17379,7 +17379,7 @@ var _collection = __webpack_require__(4);
 
 var _collection2 = _interopRequireDefault(_collection);
 
-var _model = __webpack_require__(7);
+var _model = __webpack_require__(8);
 
 var _model2 = _interopRequireDefault(_model);
 
@@ -17422,7 +17422,7 @@ var _backbone3 = __webpack_require__(3);
 
 var _backbone4 = _interopRequireDefault(_backbone3);
 
-var _view = __webpack_require__(9);
+var _view = __webpack_require__(10);
 
 var _view2 = _interopRequireDefault(_view);
 
@@ -17450,6 +17450,12 @@ exports.default = _backbone4.default.CollectionView.extend({
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17471,7 +17477,7 @@ var _backbone = __webpack_require__(2);
 
 var _backbone2 = _interopRequireDefault(_backbone);
 
-var _collection = __webpack_require__(10);
+var _collection = __webpack_require__(11);
 
 var _collection2 = _interopRequireDefault(_collection);
 
@@ -17505,7 +17511,7 @@ exports.default = _backbone2.default.Model.extend({
 });
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17561,7 +17567,7 @@ exports.default = _backbone2.default.Model.extend({
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17587,11 +17593,11 @@ var _backbone3 = __webpack_require__(3);
 
 var _backbone4 = _interopRequireDefault(_backbone3);
 
-var _column = __webpack_require__(13);
+var _column = __webpack_require__(14);
 
 var _column2 = _interopRequireDefault(_column);
 
-var _row = __webpack_require__(14);
+var _row = __webpack_require__(15);
 
 var _row2 = _interopRequireDefault(_row);
 
@@ -17644,7 +17650,7 @@ exports.default = _backbone4.default.View.extend({
 });
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17666,7 +17672,7 @@ var _collection = __webpack_require__(4);
 
 var _collection2 = _interopRequireDefault(_collection);
 
-var _model = __webpack_require__(8);
+var _model = __webpack_require__(9);
 
 var _model2 = _interopRequireDefault(_model);
 
@@ -17728,11 +17734,13 @@ exports.default = _collection2.default.extend({
 });
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+__webpack_require__(7);
 
 var _jquery = __webpack_require__(1);
 
@@ -17761,7 +17769,6 @@ var _view2 = _interopRequireDefault(_view);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //Application class
-//import './styles.less';
 var Matrix = _backbone4.default.Application.extend({
     articles: null, //articles collection
 
@@ -17799,12 +17806,12 @@ var Matrix = _backbone4.default.Application.extend({
 //Instance with app-wide options
 var matrix = new Matrix().start({
     rootUrl: '', //Root URL for web service's endpoints
-    apiPath: '/assets', //Path to JSON endpoints
-    articlesPath: '/articles.json' //Endpoint for articles
+    apiPath: '', //Path to JSON endpoints
+    articlesPath: 'articles.json' //Endpoint for articles
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Backbone.Radio v2.0.0
@@ -18159,7 +18166,7 @@ var matrix = new Matrix().start({
 //# sourceMappingURL=./backbone.radio.js.map
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = function(obj){
@@ -18176,7 +18183,7 @@ return __p;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function(obj){
@@ -18199,7 +18206,7 @@ return __p;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 var g;

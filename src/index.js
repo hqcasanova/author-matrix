@@ -43,7 +43,7 @@ const Matrix = Marionette.Application.extend({
 
 //Instance with app-wide options
 const matrix = new Matrix().start({
-    rootUrl: '',                            //Root URL for web service's endpoints
-    apiPath: '/assets',                     //Path to JSON endpoints
-    articlesPath: '/articles.json'          //Endpoint for articles
+    rootUrl: '',                           //Root URL for web service's endpoints
+    apiPath: '',                           //Path to JSON endpoints
+    articlesPath: 'articles.json'          //Endpoint for articles
 });

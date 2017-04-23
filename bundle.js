@@ -17497,7 +17497,7 @@ exports.default = _backbone2.default.Model.extend({
         this.on('add', this.onAdd);
     },
 
-    //Works out list of author pointers
+    //Works out list of author pointers from the article object
     parse: function parse(response) {
         response.AuthorList = this.authors.toPointers(response);
         return response;
@@ -17505,8 +17505,8 @@ exports.default = _backbone2.default.Model.extend({
 
     //Update each author's list of articles once Backbone's CID for this article has been 
     //worked out (once the article has been added to the collection)
-    onAdd: function onAdd() {
-        this.authors.changeArticles(this.get('AuthorList'), this.cid);
+    onAdd: function onAdd(article) {
+        this.authors.changeArticles(article.get('AuthorList'), article.cid);
     }
 });
 
@@ -17692,8 +17692,8 @@ exports.default = _collection2.default.extend({
     //NOTE: By default, Backbone ignores models with existing IDs but will nevertheless 
     //return them as part of the add operation. If the authors are not in the collection's
     //hash, it also adds them.
-    toPointers: function toPointers(response) {
-        return _underscore2.default.pluck(this.add(response, { parse: true }), 'cid');
+    toPointers: function toPointers(articleObj) {
+        return _underscore2.default.pluck(this.add(articleObj, { parse: true }), 'cid');
     },
 
     //Updates the article list for each of the authors of the present article.
@@ -17771,32 +17771,40 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //Application class
 var Matrix = _backbone4.default.Application.extend({
     articles: null, //articles collection
+    authors: null, //authors collection
 
-    //Sets up search results collection
+    //Sets up data structures. Uses prototype to establish relationships.
     onBeforeStart: function onBeforeStart(app, options) {
         this.articles = new _collection2.default([], {
             url: options.rootUrl + options.apiPath + options.articlesPath,
             rootProp: 'MedlineCitationSet'
         });
+
+        //There's a many-to-many relationship between authors and articles.
+        //NOTE: to facilitate dynamic updating of authors through the sequential
+        //processing of articles, the coupling is implemented in the article => author
+        //direction.
+        this.authors = this.articles.model.prototype.authors;
     },
 
-    //Fills the matrix with data incrementally, as the articles are processed one by one.
+    //Sets up view scaffolding around existing markup.
     onStart: function onStart(app, options) {
-        var authors = this.articles.model.prototype.authors;
         var matrixEl = document.body.querySelector('.matrix');
         var columnsEl = matrixEl.querySelector('.columns');
         var rowsEl = matrixEl.querySelector('.rows');
 
         new _view2.default({
             el: columnsEl,
-            collection: authors,
+            collection: this.authors,
             childViewOptions: { isColumn: true }
         }).render();
         new _view2.default({
             el: rowsEl,
-            collection: authors,
+            collection: this.authors,
             articles: this.articles
         }).render();
+
+        //Fills the matrix with data incrementally, as the articles are processed one by one.
         this.articles.fetch({ success: function success() {
                 columnsEl.classList.add('loaded');
             } });

@@ -13,7 +13,7 @@ export default Row.extend({
     },
 
     //Extracts author data from the article, converting the author list into a series of
-    //pointers during the process. Each pointer is a CID, Backbone's generated ID. 
+    //pointers during the process. Each pointer is a CID, Backbone's generated ID.  
     //NOTE: By default, Backbone ignores models with existing IDs but will nevertheless 
     //return them as part of the add operation. If the authors are not in the collection's
     //hash, it also adds them.

@@ -1,0 +1,74 @@
+{
+    "MedlineCitationSet": {
+        "Article": [
+            {
+                "ArticleTitle": "Title 1",
+                "AuthorList": {
+                    "Author": [
+                        {
+                            "LastName": "Abraham",
+                            "ForeName": "Alice",
+                            "Initials": "A"
+                        },
+                        {
+                            "LastName": "Byron",
+                            "ForeName": "Bill",
+                            "Initials": "B"
+                        }
+                    ]
+                }
+            },
+            {
+                "ArticleTitle": "Title 2",
+                "AuthorList": {
+                    "Author": [
+                        {
+                            "LastName": "Byron",
+                            "ForeName": "Bill",
+                            "Initials": "B"
+                        },
+                        {
+                            "LastName": "Chang",
+                            "ForeName": "Christie",
+                            "Initials": "C"
+                        }
+                    ]
+                }
+            },
+            {
+                "ArticleTitle": "Title 3",
+                "AuthorList": {
+                    "Author": [
+                        {
+                            "LastName": "Chang",
+                            "ForeName": "Christie",
+                            "Initials": "C"
+                        },
+                        {
+                            "LastName": "Abraham",
+                            "ForeName": "Alice",
+                            "Initials": "A"
+                        }
+                    ]
+                }
+            },
+            {
+                "ArticleTitle": "Title 4",
+                "AuthorList": {
+                    "Author": [
+                        {
+                            "LastName": "Doel",
+                            "ForeName": "David",
+                            "Initials": "J"
+                        },
+                        {
+                            "LastName": "Byron",
+                            "ForeName": "Bill",
+                            "Initials": "B"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
